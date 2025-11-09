@@ -5,7 +5,7 @@ import type { ControllerMapping, MappingKey } from '@/lib/types';
 import { initialMappings } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 import Header from '@/components/header';
-import XboxController from '@/components/icons/xbox-controller';
+import ImageController from '@/components/icons/image-controller';
 import MappingForm from '@/components/mapping-form';
 import PrintableConfig from '@/components/printable-config';
 import { Separator } from '@/components/ui/separator';
@@ -67,7 +67,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2 flex items-center justify-center">
             <div className="w-full max-w-md lg:max-w-full sticky top-8">
-              <XboxController activeInput={activeInput} />
+              <ImageController />
             </div>
           </div>
           <div className="lg:col-span-3">
