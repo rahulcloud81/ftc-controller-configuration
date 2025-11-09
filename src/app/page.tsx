@@ -37,17 +37,40 @@ export default function Home() {
   };
 
   const handleSave = async () => {
+    // 1. Save to server
     const result = await saveMappings(mappings);
     if (result.success) {
       toast({
         title: 'Profile Saved',
-        description: 'Your controller configuration has been saved.',
+        description: 'Your controller configuration has been saved to the server.',
       });
     } else {
       toast({
         variant: 'destructive',
         title: 'Save Failed',
         description: result.error,
+      });
+      // Don't proceed to download if server save failed
+      return;
+    }
+
+    // 2. Trigger download
+    try {
+      const dataStr = JSON.stringify(mappings, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'controller-config.json';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+       toast({
+        variant: 'destructive',
+        title: 'Download Failed',
+        description: 'Could not create a downloadable file.',
       });
     }
   };
