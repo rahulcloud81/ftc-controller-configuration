@@ -8,7 +8,6 @@ import Header from '@/components/header';
 import ImageController from '@/components/icons/image-controller';
 import MappingForm from '@/components/mapping-form';
 import PrintableConfig from '@/components/printable-config';
-import { Separator } from '@/components/ui/separator';
 
 export default function Home() {
   const [mappings, setMappings] = useState<ControllerMapping>(initialMappings);
