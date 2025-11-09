@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function ImageController() {
   return (
     <Image
-      src="https://picsum.photos/seed/xbox-controller/400/250"
+      src="/xbox-controller.png"
       alt="Xbox Controller"
       width={400}
       height={250}
