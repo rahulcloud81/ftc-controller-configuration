@@ -1,0 +1,22 @@
+{
+    "a_button": "Intake In",
+    "b_button": "Intake out",
+    "x_button": "Shooter On",
+    "y_button": "Shooter Off",
+    "dpad_up": "Spin forward",
+    "dpad_down": "Spin Backward",
+    "dpad_left": "",
+    "dpad_right": "",
+    "left_bumper": "Transfer Forward",
+    "right_bumper": "Transfer Backward",
+    "left_trigger": "",
+    "right_trigger": "",
+    "left_stick_x": "Drive Forward/Backward",
+    "left_stick_y": "Strafe",
+    "left_stick_press": "",
+    "right_stick_x": "",
+    "right_stick_y": "Turn Left/Right",
+    "right_stick_press": "",
+    "view_button": "",
+    "menu_button": ""
+  }

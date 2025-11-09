@@ -8,6 +8,7 @@ import Header from '@/components/header';
 import ImageController from '@/components/icons/image-controller';
 import MappingForm from '@/components/mapping-form';
 import PrintableConfig from '@/components/printable-config';
+import { saveMappings } from './actions';
 
 export default function Home() {
   const [mappings, setMappings] = useState<ControllerMapping>(initialMappings);
@@ -35,21 +36,20 @@ export default function Home() {
     setMappings((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleSave = () => {
-    const dataStr = JSON.stringify(mappings, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.download = 'controller-config.json';
-    link.href = url;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-    toast({
-      title: 'Profile Saved',
-      description: 'Your controller configuration has been saved.',
-    });
+  const handleSave = async () => {
+    const result = await saveMappings(mappings);
+    if (result.success) {
+      toast({
+        title: 'Profile Saved',
+        description: 'Your controller configuration has been saved.',
+      });
+    } else {
+      toast({
+        variant: 'destructive',
+        title: 'Save Failed',
+        description: result.error,
+      });
+    }
   };
 
   const handleLoad = (data: ControllerMapping, isInitialLoad = false) => {
