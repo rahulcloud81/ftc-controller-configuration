@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { ControllerMapping, MappingKey } from '@/lib/types';
 import { initialMappings } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
@@ -13,6 +13,23 @@ export default function Home() {
   const [mappings, setMappings] = useState<ControllerMapping>(initialMappings);
   const [activeInput, setActiveInput] = useState<MappingKey | null>(null);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const loadInitialConfig = async () => {
+      try {
+        const response = await fetch('/controller-config.json');
+        if (response.ok) {
+          const data = await response.json();
+          handleLoad(data, true);
+        } else {
+          // You could choose to show a toast here if the default file not loading is an error
+        }
+      } catch (error) {
+        // You could choose to show a toast here if the fetch fails
+      }
+    };
+    loadInitialConfig();
+  }, []);
 
   const handleMappingChange = (key: MappingKey, value: string) => {
     setMappings((prev) => ({ ...prev, [key]: value }));
@@ -35,18 +52,20 @@ export default function Home() {
     });
   };
 
-  const handleLoad = (data: ControllerMapping) => {
+  const handleLoad = (data: ControllerMapping, isInitialLoad = false) => {
     // Basic validation
     const isValid = Object.keys(initialMappings).every((key) =>
       Object.prototype.hasOwnProperty.call(data, key)
     );
     if (isValid) {
       setMappings(data);
-      toast({
-        title: 'Profile Loaded',
-        description: 'Controller configuration has been successfully loaded.',
-      });
-    } else {
+      if (!isInitialLoad) {
+        toast({
+          title: 'Profile Loaded',
+          description: 'Controller configuration has been successfully loaded.',
+        });
+      }
+    } else if (!isInitialLoad) {
       toast({
         variant: 'destructive',
         title: 'Load Failed',

@@ -1,0 +1,22 @@
+{
+  "a_button": "Jump",
+  "b_button": "Crouch",
+  "x_button": "Reload",
+  "y_button": "Interact",
+  "dpad_up": "Weapon 1",
+  "dpad_down": "Weapon 2",
+  "dpad_left": "Gadget 1",
+  "dpad_right": "Gadget 2",
+  "left_bumper": "Aim",
+  "right_bumper": "Fire",
+  "left_trigger": "Grenade",
+  "right_trigger": "Melee",
+  "left_stick_x": "Move Left/Right",
+  "left_stick_y": "Move Forward/Backward",
+  "left_stick_press": "Sprint",
+  "right_stick_x": "Look Left/Right",
+  "right_stick_y": "Look Up/Down",
+  "right_stick_press": "Zoom",
+  "view_button": "Map",
+  "menu_button": "Pause"
+}
