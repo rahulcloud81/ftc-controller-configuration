@@ -1,9 +1,10 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import { APP_TITLE } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: 'Tech Titan Controller Mapping',
+  title: APP_TITLE,
   description: 'Map Xbox controller inputs to robot actions.',
 };
 

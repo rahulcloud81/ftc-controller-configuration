@@ -7,6 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { APP_TITLE } from '@/lib/config';
 
 type PrintableConfigProps = {
   mappings: ControllerMapping;
@@ -49,14 +50,6 @@ const MappingTable = ({ title, keys, mappings }: { title: string; keys: MappingK
 };
 
 export default function PrintableConfig({ mappings }: PrintableConfigProps) {
-  const layout: { [key: string]: MappingKey[] } = {
-    'Face Buttons': ['a_button', 'b_button', 'x_button', 'y_button'],
-    'D-Pad': ['dpad_up', 'dpad_down', 'dpad_left', 'dpad_right'],
-    'Shoulder Buttons': ['left_bumper', 'right_bumper', 'left_trigger', 'right_trigger'],
-    'Thumbsticks': ['left_stick_x', 'left_stick_y', 'left_stick_press', 'right_stick_x', 'right_stick_y', 'right_stick_press'],
-    'Center Buttons': ['view_button', 'menu_button'],
-  };
-
   const printLayout: { [key: string]: MappingKey[] } = {
      'Face Buttons': ['a_button', 'b_button', 'x_button', 'y_button'],
      'Shoulder Buttons': ['left_bumper', 'right_bumper', 'left_trigger', 'right_trigger'],
@@ -67,7 +60,7 @@ export default function PrintableConfig({ mappings }: PrintableConfigProps) {
   return (
     <div className="hidden printable-area p-8 font-sans">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-2 font-headline">Tech Titan Controller Mapping</h1>
+        <h1 className="text-4xl font-bold mb-2 font-headline">{APP_TITLE}</h1>
         <p className="text-gray-600 text-lg">Generated on: {new Date().toLocaleDateString()}</p>
       </div>
 
