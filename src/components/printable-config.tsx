@@ -17,20 +17,20 @@ const formatKey = (key: string) => {
 }
 
 const MappingTable = ({ title, keys, mappings }: { title: string; keys: MappingKey[]; mappings: ControllerMapping }) => (
-  <div>
-    <h3 className="font-bold text-lg mb-2">{title}</h3>
-    <Table className="border">
+  <div className="break-inside-avoid">
+    <h3 className="font-bold text-xl mb-3 font-headline">{title}</h3>
+    <Table className="border text-base">
       <TableHeader>
         <TableRow>
-          <TableHead className="w-1/2 font-semibold text-gray-700">Control</TableHead>
-          <TableHead className="w-1/2 font-semibold text-gray-700">Action</TableHead>
+          <TableHead className="w-1/2 font-bold text-gray-800 text-lg">Control</TableHead>
+          <TableHead className="w-1/2 font-bold text-gray-800 text-lg">Action</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {keys.map((key) => (
           <TableRow key={key}>
-            <TableCell>{formatKey(key)}</TableCell>
-            <TableCell className="break-words">
+            <TableCell className="font-semibold">{formatKey(key)}</TableCell>
+            <TableCell className="break-words font-code">
               {mappings[key] || <span className="text-gray-400 italic">Not Assigned</span>}
             </TableCell>
           </TableRow>
@@ -42,47 +42,24 @@ const MappingTable = ({ title, keys, mappings }: { title: string; keys: MappingK
 
 
 export default function PrintableConfig({ mappings }: PrintableConfigProps) {
-  const leftColumnKeys = {
-    'Shoulder Buttons': ['left_bumper', 'left_trigger'],
-    'Left Thumbstick': ['left_stick_x', 'left_stick_y', 'left_stick_press'],
+  const layout = {
+    'Shoulder Buttons': ['left_bumper', 'right_bumper', 'left_trigger', 'right_trigger'],
     'D-Pad': ['dpad_up', 'dpad_down', 'dpad_left', 'dpad_right'],
-  };
-
-  const rightColumnKeys = {
-    'Shoulder Buttons ': ['right_bumper', 'right_trigger'],
-    'Right Thumbstick': ['right_stick_x', 'right_stick_y', 'right_stick_press'],
+    'Thumbsticks': ['left_stick_x', 'left_stick_y', 'left_stick_press', 'right_stick_x', 'right_stick_y', 'right_stick_press'],
     'Face Buttons': ['a_button', 'b_button', 'x_button', 'y_button'],
   };
-  
-  const centerKeys = {
-    'Center Buttons': ['view_button', 'menu_button'],
-  }
 
   return (
-    <div className="hidden printable-area p-4 sm:p-8 font-sans">
-      <div className="text-center mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold mb-2">Controller Configuration</h1>
-        <p className="text-gray-600 text-sm sm:text-base">Generated on: {new Date().toLocaleDateString()}</p>
+    <div className="hidden printable-area p-8 font-sans">
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold mb-2 font-headline">Controller Configuration</h1>
+        <p className="text-gray-600 text-lg">Generated on: {new Date().toLocaleDateString()}</p>
       </div>
 
-      <div className="max-w-4xl mx-auto space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-            <div className="space-y-6">
-                {Object.entries(leftColumnKeys).map(([title, keys]) => (
-                    <MappingTable key={title} title={title} keys={keys as MappingKey[]} mappings={mappings} />
-                ))}
-            </div>
-            <div className="space-y-6">
-                {Object.entries(rightColumnKeys).map(([title, keys]) => (
-                    <MappingTable key={title} title={title} keys={keys as MappingKey[]} mappings={mappings} />
-                ))}
-            </div>
-        </div>
-        <div className="max-w-xl mx-auto pt-4">
-             {Object.entries(centerKeys).map(([title, keys]) => (
-                <MappingTable key={title} title={title} keys={keys as MappingKey[]} mappings={mappings} />
-            ))}
-        </div>
+      <div className="space-y-8">
+        {Object.entries(layout).map(([title, keys]) => (
+            <MappingTable key={title} title={title} keys={keys as MappingKey[]} mappings={mappings} />
+        ))}
       </div>
     </div>
   );
