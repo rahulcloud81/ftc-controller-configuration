@@ -14,6 +14,7 @@ type HeaderProps = {
   onPrint: () => void;
 };
 
+//this is a comment
 export default function Header({ onSave, onDownload, onLoad, onPrint }: HeaderProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
