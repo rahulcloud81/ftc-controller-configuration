@@ -2,17 +2,18 @@
 
 import { useRef, type ChangeEvent } from 'react';
 import { Button } from '@/components/ui/button';
-import { FolderOpen, Save, Printer } from 'lucide-react';
+import { FolderOpen, Save, Printer, Download } from 'lucide-react';
 import type { ControllerMapping } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 
 type HeaderProps = {
   onSave: () => void;
+  onDownload: () => void;
   onLoad: (data: ControllerMapping) => void;
   onPrint: () => void;
 };
 
-export default function Header({ onSave, onLoad, onPrint }: HeaderProps) {
+export default function Header({ onSave, onDownload, onLoad, onPrint }: HeaderProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
@@ -77,6 +78,10 @@ export default function Header({ onSave, onLoad, onPrint }: HeaderProps) {
           <Button variant="outline" size="sm" onClick={onSave}>
             <Save />
             Save
+          </Button>
+           <Button variant="outline" size="sm" onClick={onDownload}>
+            <Download />
+            Download
           </Button>
           <Button variant="outline" size="sm" onClick={onPrint}>
             <Printer />

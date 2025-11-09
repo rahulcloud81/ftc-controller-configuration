@@ -37,7 +37,6 @@ export default function Home() {
   };
 
   const handleSave = async () => {
-    // 1. Save to server
     const result = await saveMappings(mappings);
     if (result.success) {
       toast({
@@ -50,12 +49,11 @@ export default function Home() {
         title: 'Save Failed',
         description: result.error,
       });
-      // Don't proceed to download if server save failed
-      return;
     }
+  };
 
-    // 2. Trigger download
-    try {
+  const handleDownload = () => {
+     try {
       const dataStr = JSON.stringify(mappings, null, 2);
       const blob = new Blob([dataStr], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
@@ -66,6 +64,10 @@ export default function Home() {
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
+      toast({
+        title: 'Profile Downloaded',
+        description: 'Your controller configuration has been downloaded.',
+      });
     } catch (error) {
        toast({
         variant: 'destructive',
@@ -103,7 +105,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header onSave={handleSave} onLoad={handleLoad} onPrint={handlePrint} />
+      <Header onSave={handleSave} onDownload={handleDownload} onLoad={handleLoad} onPrint={handlePrint} />
       <main className="flex-1 container mx-auto px-4 py-8 no-print">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2 flex items-center justify-center">
