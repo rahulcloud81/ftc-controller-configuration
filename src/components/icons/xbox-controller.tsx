@@ -1,29 +1,42 @@
 'use client';
 
-import type { MappingKey } from '@/lib/types';
+import type { ControllerMapping, MappingKey } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
 type XboxControllerProps = {
   activeInput: MappingKey | null;
+  mappings: ControllerMapping;
 };
 
-export default function XboxController({ activeInput }: XboxControllerProps) {
+export default function XboxController({ activeInput, mappings }: XboxControllerProps) {
   const baseClasses = 'fill-muted-foreground transition-colors duration-200';
   const activeClasses = 'fill-primary';
   const getClasses = (key: MappingKey) => (activeInput === key ? cn(baseClasses, activeClasses) : baseClasses);
 
+  const textClasses = "text-xs fill-foreground font-sans";
+
   return (
-    <svg width="400" height="250" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="400" height="250"
+     viewBox="0 0 500 300"
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg">
       {/* Main body */}
       <path d="M60,150 C-20,250 10,250 100,220 L150,130 L350,130 L400,220 C490,250 520,250 440,150 C450,50 350,60 350,60 L150,60 C150,60 50,50 60,150Z" className="fill-card-foreground stroke-border" strokeWidth="4"/>
       
       {/* Left Stick */}
       <circle cx="170" cy="185" r="30" className={cn(getClasses('left_stick_press'), 'stroke-primary fill-muted-foreground/50')} strokeWidth="2"/>
       <circle cx="170" cy="185" r="25" className="fill-muted-foreground" />
+      <text x="170" y="230" textAnchor="middle" className={textClasses}>{mappings.left_stick_press}</text>
+      <text x="110" y="185" textAnchor="middle" className={textClasses}>{mappings.left_stick_x}</text>
+      <text x="170" y="145" textAnchor="middle" className={textClasses}>{mappings.left_stick_y}</text>
+
 
       {/* Right Stick */}
       <circle cx="330" cy="185" r="30" className={cn(getClasses('right_stick_press'), 'stroke-primary fill-muted-foreground/50')} strokeWidth="2"/>
       <circle cx="330" cy="185" r="25" className="fill-muted-foreground" />
+      <text x="330" y="230" textAnchor="middle" className={textClasses}>{mappings.right_stick_press}</text>
+      <text x="270" y="185" textAnchor="middle" className={textClasses}>{mappings.right_stick_x}</text>
+      <text x="330" y="145" textAnchor="middle" className={textClasses}>{mappings.right_stick_y}</text>
 
       {/* D-Pad */}
       <g>
@@ -32,9 +45,13 @@ export default function XboxController({ activeInput }: XboxControllerProps) {
         <path d="M98 133 H 122 V 115 H 98 Z" className={getClasses('dpad_up')} />
         <path d="M122 133 H 150 V 157 H 122 Z" className={getClasses('dpad_right')} />
       </g>
+      <text x="110" y="110" textAnchor="middle" className={textClasses}>{mappings.dpad_up}</text>
+      <text x="110" y="185" textAnchor="middle" className={textClasses}>{mappings.dpad_down}</text>
+      <text x="60" y="145" textAnchor="middle" className={textClasses}>{mappings.dpad_left}</text>
+      <text x="160" y="145" textAnchor="middle" className={textClasses}>{mappings.dpad_right}</text>
       
       {/* Face Buttons */}
-      <g className="font-sans text-xs fill-foreground" pointerEvents="none">
+      <g pointerEvents="none">
         <circle cx="410" cy="155" r="15" className={getClasses('y_button')} />
         <path d="M402 147 L410 163 L418 147 Z" fill="#6EE7B7" stroke="#000" strokeWidth="1"/>
         <circle cx="445" cy="125" r="15" className={getClasses('b_button')} />
@@ -45,21 +62,33 @@ export default function XboxController({ activeInput }: XboxControllerProps) {
         <line x1="402" y1="103" x2="418" y2="87" stroke="#FBBF24" strokeWidth="2"/>
         <line x1="402" y1="87" x2="418" y2="103" stroke="#FBBF24" strokeWidth="2"/>
       </g>
+       <text x="375" y="160" textAnchor="middle" className={textClasses}>{mappings.a_button}</text>
+      <text x="445" y="160" textAnchor="middle" className={textClasses}>{mappings.b_button}</text>
+      <text x="410" y="75" textAnchor="middle" className={textClasses}>{mappings.x_button}</text>
+      <text x="410" y="190" textAnchor="middle" className={textClasses}>{mappings.y_button}</text>
+
       
       {/* Center Pad */}
       <rect x="190" y="80" width="120" height="70" rx="5" className="fill-muted-foreground/30"/>
 
       {/* Small Buttons */}
       <circle cx="210" cy="65" r="8" className={getClasses('view_button')}/>
+      <text x="180" y="70" textAnchor="middle" className={textClasses}>{mappings.view_button}</text>
       <circle cx="290" cy="65" r="8" className={getClasses('menu_button')}/>
+      <text x="320" y="70" textAnchor="middle" className={textClasses}>{mappings.menu_button}</text>
       
       {/* Bumpers */}
       <path d="M110,60 Q150,20 190,60" className={cn(getClasses('left_bumper'), 'stroke-border')} strokeWidth="15" fill="none"/>
+      <text x="150" y="50" textAnchor="middle" className={textClasses}>{mappings.left_bumper}</text>
       <path d="M310,60 Q350,20 390,60" className={cn(getClasses('right_bumper'), 'stroke-border')} strokeWidth="15" fill="none"/>
+      <text x="350" y="50" textAnchor="middle" className={textClasses}>{mappings.right_bumper}</text>
+
 
       {/* Triggers */}
       <path d="M110,60 Q130,0 170,30" className={cn(getClasses('left_trigger'), 'stroke-muted-foreground/50')} strokeWidth="15" fill="none"/>
+       <text x="150" y="20" textAnchor="middle" className={textClasses}>{mappings.left_trigger}</text>
       <path d="M330,30 Q370,0 390,60" className={cn(getClasses('right_trigger'), 'stroke-muted-foreground/50')} strokeWidth="15" fill="none"/>
+      <text x="350" y="20" textAnchor="middle" className={textClasses}>{mappings.right_trigger}</text>
     </svg>
   );
 }
