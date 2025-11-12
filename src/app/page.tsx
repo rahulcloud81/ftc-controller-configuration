@@ -107,7 +107,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Header onSave={handleSave} onDownload={handleDownload} onLoad={handleLoad} onPrint={handlePrint} />
       <main className="flex-1 container mx-auto px-4 py-8 no-print flex flex-col items-center">
-        <div className="w-full flex justify-center mb-8">
+        <div className="w-full flex justify-center mb-8 border rounded-lg p-4">
             <XboxController activeInput={activeInput} mappings={mappings} />
         </div>
         <div className="w-full">
