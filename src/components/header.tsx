@@ -7,6 +7,8 @@ import type { ControllerMapping } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 import { APP_TITLE } from '@/lib/config';
 import { ThemeToggle } from './theme-toggle';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+
 
 type HeaderProps = {
   onSave: () => void;
@@ -15,7 +17,22 @@ type HeaderProps = {
   onPrint: () => void;
 };
 
-//this is a comment
+const HeaderButton = ({ tooltip, children, ...props }: { tooltip: string, children: React.ReactNode } & React.ComponentProps<typeof Button>) => (
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button {...props}>
+          {children}
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>{tooltip}</p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+);
+
+
 export default function Header({ onSave, onDownload, onLoad, onPrint }: HeaderProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -64,7 +81,7 @@ export default function Header({ onSave, onDownload, onLoad, onPrint }: HeaderPr
       <div className="container flex h-14 items-center">
         <div className="mr-4 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="h-6 w-6 mr-2 text-primary"><rect width="256" height="256" fill="none"></rect><path d="M168.2,128.9a134.4,134.4,0,0,1,28.8-3.4,48,48,0,1,1-32.9-63.3" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"></path><path d="M87.8,128.9a134.4,134.4,0,0,0-28.8-3.4,48,48,0,1,0,32.9-63.3" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"></path><path d="M128,152a72,72,0,0,1-72-72,2.8,2.8,0,0,1,0-1.7,72.1,72.1,0,0,1,144,0,2.8,2.8,0,0,1,0,1.7A72,72,0,0,1,128,152Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16"></path></svg>
-          <span className="font-bold">{APP_TITLE}</span>
+          <span className="font-bold hidden sm:inline-block">{APP_TITLE}</span>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
           <input
@@ -74,22 +91,22 @@ export default function Header({ onSave, onDownload, onLoad, onPrint }: HeaderPr
             accept=".json"
             className="hidden"
           />
-          <Button variant="outline" size="sm" onClick={handleLoadClick}>
+          <HeaderButton variant="outline" size="sm" onClick={handleLoadClick} tooltip="Load Profile">
             <FolderOpen />
-            Load
-          </Button>
-          <Button variant="outline" size="sm" onClick={onSave}>
+            <span className="hidden sm:inline">Load</span>
+          </HeaderButton>
+          <HeaderButton variant="outline" size="sm" onClick={onSave} tooltip="Save to Server">
             <Save />
-            Save
-          </Button>
-           <Button variant="outline" size="sm" onClick={onDownload}>
+            <span className="hidden sm:inline">Save</span>
+          </HeaderButton>
+           <HeaderButton variant="outline" size="sm" onClick={onDownload} tooltip="Download Profile">
             <Download />
-            Download
-          </Button>
-          <Button variant="outline" size="sm" onClick={onPrint}>
+            <span className="hidden sm:inline">Download</span>
+          </HeaderButton>
+          <HeaderButton variant="outline" size="sm" onClick={onPrint} tooltip="Print Configuration">
             <Printer />
-            Print
-          </Button>
+            <span className="hidden sm:inline">Print</span>
+          </HeaderButton>
           <ThemeToggle />
         </div>
       </div>

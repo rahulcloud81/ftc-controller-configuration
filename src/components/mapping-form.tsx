@@ -52,10 +52,10 @@ export default function MappingForm({
   setActiveInput,
 }: MappingFormProps) {
   return (
-    <ScrollArea className="w-full whitespace-nowrap">
-      <div className="flex w-max space-x-4 pb-4">
+    <>
+      <div className="md:hidden space-y-4">
         {inputGroups.map((group) => (
-          <Card key={group.title} className="w-96">
+          <Card key={group.title} className="w-full">
             <CardHeader>
               <CardTitle>{group.title}</CardTitle>
             </CardHeader>
@@ -77,7 +77,33 @@ export default function MappingForm({
           </Card>
         ))}
       </div>
-      <ScrollBar orientation="horizontal" />
-    </ScrollArea>
+      <ScrollArea className="hidden md:block w-full whitespace-nowrap">
+        <div className="flex w-max space-x-4 pb-4">
+          {inputGroups.map((group) => (
+            <Card key={group.title} className="w-96">
+              <CardHeader>
+                <CardTitle>{group.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className={`grid ${group.gridCols} gap-4`}>
+                  {group.keys.map((key) => (
+                    <MappingInput
+                      key={key}
+                      label={key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                      name={key}
+                      value={mappings[key]}
+                      onChange={(e) => onMappingChange(key, e.target.value)}
+                      onFocus={() => setActiveInput(key)}
+                      onBlur={() => setActiveInput(null)}
+                    />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
+    </>
   );
 }
