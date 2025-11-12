@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import type { ControllerMapping, MappingKey } from '@/lib/types';
 import {
   Table,
@@ -50,6 +53,12 @@ const MappingTable = ({ title, keys, mappings }: { title: string; keys: MappingK
 };
 
 export default function PrintableConfig({ mappings }: PrintableConfigProps) {
+  const [generatedDate, setGeneratedDate] = useState('');
+
+  useEffect(() => {
+    setGeneratedDate(new Date().toLocaleDateString());
+  }, []);
+
   const printLayout: { [key: string]: MappingKey[] } = {
      'Face Buttons': ['a_button', 'b_button', 'x_button', 'y_button'],
      'Shoulder Buttons': ['left_bumper', 'right_bumper', 'left_trigger', 'right_trigger'],
@@ -61,7 +70,7 @@ export default function PrintableConfig({ mappings }: PrintableConfigProps) {
     <div className="hidden printable-area p-8 font-sans">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-2 font-headline">{APP_TITLE}</h1>
-        <p className="text-gray-600 text-lg">Generated on: {new Date().toLocaleDateString()}</p>
+        <p className="text-gray-600 text-lg">Generated on: {generatedDate}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-x-12 gap-y-8">
