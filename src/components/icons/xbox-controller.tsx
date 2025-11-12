@@ -28,14 +28,14 @@ export default function XboxController({ activeInput, mappings }: XboxController
       {/* Left Stick */}
       <circle cx="170" cy="185" r="30" className={cn(getClasses('left_stick_press'), 'stroke-primary fill-muted-foreground/50')} strokeWidth="2"/>
       <circle cx="170" cy="185" r="25" className="fill-muted-foreground" />
-      <path d="M170 215 V 285 H 120" className={lineClasses} strokeWidth="1"/>
-      <text x="115" y="290" textAnchor="end" className={textClasses}>{mappings.left_stick_press}</text>
+      <path d="M170 215 V 340 H 120" className={lineClasses} strokeWidth="1"/>
+      <text x="115" y="345" textAnchor="end" className={textClasses}>{mappings.left_stick_press}</text>
       
       <path d="M140 185 H 80" className={lineClasses} strokeWidth="1"/>
       <text x="75" y="190" textAnchor="end" className={textClasses}>{mappings.left_stick_x}</text>
       
-      <path d="M170 155 V 115 H 120" className={lineClasses} strokeWidth="1"/>
-      <text x="115" y="120" textAnchor="end" className={textClasses}>{mappings.left_stick_y}</text>
+      <path d="M170 155 V 310 H 120" className={lineClasses} strokeWidth="1"/>
+      <text x="115" y="315" textAnchor="end" className={textClasses}>{mappings.left_stick_y}</text>
 
 
       {/* Right Stick */}
