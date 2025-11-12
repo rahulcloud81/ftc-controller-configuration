@@ -11,6 +11,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { APP_TITLE } from '@/lib/config';
+import XboxController from './icons/xbox-controller';
 
 type PrintableConfigProps = {
   mappings: ControllerMapping;
@@ -56,6 +57,7 @@ export default function PrintableConfig({ mappings }: PrintableConfigProps) {
   const [generatedDate, setGeneratedDate] = useState('');
 
   useEffect(() => {
+    // This will only run on the client, after initial hydration
     setGeneratedDate(new Date().toLocaleDateString());
   }, []);
 
@@ -71,6 +73,10 @@ export default function PrintableConfig({ mappings }: PrintableConfigProps) {
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-2 font-headline">{APP_TITLE}</h1>
         <p className="text-gray-600 text-lg">Generated on: {generatedDate}</p>
+      </div>
+
+      <div className="w-full flex justify-center mb-8 border rounded-lg p-4 bg-white">
+        <XboxController activeInput={null} mappings={mappings} />
       </div>
 
       <div className="grid grid-cols-2 gap-x-12 gap-y-8">
