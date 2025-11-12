@@ -27,27 +27,27 @@ export default function XboxController({ activeInput, mappings }: XboxController
       {/* Left Stick */}
       <circle cx="170" cy="185" r="30" className={cn(getClasses('left_stick_press'), 'stroke-primary fill-muted-foreground/50')} strokeWidth="2"/>
       <circle cx="170" cy="185" r="25" className="fill-muted-foreground" />
-      <path d="M170 215 V 245 H 130" className={lineClasses} strokeWidth="1"/>
-      <text x="125" y="250" textAnchor="end" className={textClasses}>{mappings.left_stick_press}</text>
+      <path d="M170 215 V 255 H 120" className={lineClasses} strokeWidth="1"/>
+      <text x="115" y="260" textAnchor="end" className={textClasses}>{mappings.left_stick_press}</text>
       
-      <path d="M140 185 H 90" className={lineClasses} strokeWidth="1"/>
-      <text x="85" y="190" textAnchor="end" className={textClasses}>{mappings.left_stick_x}</text>
+      <path d="M140 185 H 80" className={lineClasses} strokeWidth="1"/>
+      <text x="75" y="190" textAnchor="end" className={textClasses}>{mappings.left_stick_x}</text>
       
-      <path d="M170 155 V 125 H 130" className={lineClasses} strokeWidth="1"/>
-      <text x="125" y="130" textAnchor="end" className={textClasses}>{mappings.left_stick_y}</text>
+      <path d="M170 155 V 115 H 120" className={lineClasses} strokeWidth="1"/>
+      <text x="115" y="120" textAnchor="end" className={textClasses}>{mappings.left_stick_y}</text>
 
 
       {/* Right Stick */}
       <circle cx="330" cy="185" r="30" className={cn(getClasses('right_stick_press'), 'stroke-primary fill-muted-foreground/50')} strokeWidth="2"/>
       <circle cx="330" cy="185" r="25" className="fill-muted-foreground" />
-      <path d="M330 215 V 245 H 370" className={lineClasses} strokeWidth="1"/>
-      <text x="375" y="250" textAnchor="start" className={textClasses}>{mappings.right_stick_press}</text>
+      <path d="M330 215 V 255 H 380" className={lineClasses} strokeWidth="1"/>
+      <text x="385" y="260" textAnchor="start" className={textClasses}>{mappings.right_stick_press}</text>
       
-      <path d="M360 185 H 410" className={lineClasses} strokeWidth="1"/>
-      <text x="415" y="190" textAnchor="start" className={textClasses}>{mappings.right_stick_x}</text>
+      <path d="M360 185 H 420" className={lineClasses} strokeWidth="1"/>
+      <text x="425" y="190" textAnchor="start" className={textClasses}>{mappings.right_stick_x}</text>
 
-      <path d="M330 155 V 125 H 370" className={lineClasses} strokeWidth="1"/>
-      <text x="375" y="130" textAnchor="start" className={textClasses}>{mappings.right_stick_y}</text>
+      <path d="M330 155 V 115 H 380" className={lineClasses} strokeWidth="1"/>
+      <text x="385" y="120" textAnchor="start" className={textClasses}>{mappings.right_stick_y}</text>
 
       {/* D-Pad */}
       <g>
@@ -56,17 +56,17 @@ export default function XboxController({ activeInput, mappings }: XboxController
         <path d="M98 133 H 122 V 115 H 98 Z" className={getClasses('dpad_up')} />
         <path d="M122 133 H 150 V 157 H 122 Z" className={getClasses('dpad_right')} />
       </g>
-      <path d="M110 115 V 95 H 70" className={lineClasses} strokeWidth="1"/>
-      <text x="65" y="100" textAnchor="end" className={textClasses}>{mappings.dpad_up}</text>
+      <path d="M110 115 V 85 H 60" className={lineClasses} strokeWidth="1"/>
+      <text x="55" y="90" textAnchor="end" className={textClasses}>{mappings.dpad_up}</text>
       
-      <path d="M110 175 V 195 H 70" className={lineClasses} strokeWidth="1"/>
-      <text x="65" y="200" textAnchor="end" className={textClasses}>{mappings.dpad_down}</text>
+      <path d="M110 175 V 205 H 60" className={lineClasses} strokeWidth="1"/>
+      <text x="55" y="210" textAnchor="end" className={textClasses}>{mappings.dpad_down}</text>
 
-      <path d="M70 145 H 30" className={lineClasses} strokeWidth="1"/>
-      <text x="25" y="150" textAnchor="end" className={textClasses}>{mappings.dpad_left}</text>
+      <path d="M70 145 H 20" className={lineClasses} strokeWidth="1"/>
+      <text x="15" y="150" textAnchor="end" className={textClasses}>{mappings.dpad_left}</text>
       
-      <path d="M150 145 H 190" className={lineClasses} strokeWidth="1"/>
-      <text x="195" y="150" textAnchor="start" className={textClasses}>{mappings.dpad_right}</text>
+      <path d="M150 145 H 200" className={lineClasses} strokeWidth="1"/>
+      <text x="205" y="150" textAnchor="start" className={textClasses}>{mappings.dpad_right}</text>
       
       {/* Face Buttons */}
       <g pointerEvents="none">
@@ -83,17 +83,17 @@ export default function XboxController({ activeInput, mappings }: XboxController
         <circle cx="375" cy="95" r="15" className={getClasses('y_button')} />
         <path d="M367 87 L375 103 L383 87 Z" className="fill-chart-2 stroke-card" strokeWidth="1"/>
       </g>
-      <path d="M375 170 V 190 H 340" className={lineClasses} strokeWidth="1"/>
-      <text x="335" y="195" textAnchor="end" className={textClasses}>{mappings.a_button}</text>
+      <path d="M375 170 V 205 H 330" className={lineClasses} strokeWidth="1"/>
+      <text x="325" y="210" textAnchor="end" className={textClasses}>{mappings.a_button}</text>
       
-      <path d="M410 140 V 160 H 450" className={lineClasses} strokeWidth="1"/>
-      <text x="455" y="165" textAnchor="start" className={textClasses}>{mappings.b_button}</text>
+      <path d="M410 140 V 170 H 450" className={lineClasses} strokeWidth="1"/>
+      <text x="455" y="175" textAnchor="start" className={textClasses}>{mappings.b_button}</text>
       
-      <path d="M340 110 V 90 H 300" className={lineClasses} strokeWidth="1"/>
-      <text x="295" y="95" textAnchor="end" className={textClasses}>{mappings.x_button}</text>
+      <path d="M340 110 V 85 H 290" className={lineClasses} strokeWidth="1"/>
+      <text x="285" y="90" textAnchor="end" className={textClasses}>{mappings.x_button}</text>
       
-      <path d="M375 80 V 60 H 415" className={lineClasses} strokeWidth="1"/>
-      <text x="420" y="65" textAnchor="start" className={textClasses}>{mappings.y_button}</text>
+      <path d="M375 80 V 55 H 425" className={lineClasses} strokeWidth="1"/>
+      <text x="430" y="60" textAnchor="start" className={textClasses}>{mappings.y_button}</text>
 
       
       {/* Center Pad */}
@@ -110,22 +110,22 @@ export default function XboxController({ activeInput, mappings }: XboxController
       
       {/* Bumpers */}
       <path d="M110,60 Q150,20 190,60" className={cn(getClasses('left_bumper'), 'stroke-border')} strokeWidth="15" fill="none"/>
-      <path d="M150 40 V 10 H 100" className={lineClasses} strokeWidth="1"/>
-      <text x="95" y="15" textAnchor="end" className={textClasses}>{mappings.left_bumper}</text>
+      <path d="M150 40 V 10 H 90" className={lineClasses} strokeWidth="1"/>
+      <text x="85" y="15" textAnchor="end" className={textClasses}>{mappings.left_bumper}</text>
       
       <path d="M310,60 Q350,20 390,60" className={cn(getClasses('right_bumper'), 'stroke-border')} strokeWidth="15" fill="none"/>
-      <path d="M350 40 V 10 H 400" className={lineClasses} strokeWidth="1"/>
-      <text x="405" y="15" textAnchor="start" className={textClasses}>{mappings.right_bumper}</text>
+      <path d="M350 40 V 10 H 410" className={lineClasses} strokeWidth="1"/>
+      <text x="415" y="15" textAnchor="start" className={textClasses}>{mappings.right_bumper}</text>
 
 
       {/* Triggers */}
       <path d="M110,60 Q130,0 170,30" className={cn(getClasses('left_trigger'), 'stroke-muted-foreground/50')} strokeWidth="15" fill="none"/>
-      <path d="M130 20 L 120 -10 H 70" className={lineClasses} strokeWidth="1"/>
-      <text x="65" y="-5" textAnchor="end" className={textClasses}>{mappings.left_trigger}</text>
+      <path d="M130 20 L 120 -20 H 60" className={lineClasses} strokeWidth="1"/>
+      <text x="55" y="-15" textAnchor="end" className={textClasses}>{mappings.left_trigger}</text>
       
       <path d="M330,30 Q370,0 390,60" className={cn(getClasses('right_trigger'), 'stroke-muted-foreground/50')} strokeWidth="15" fill="none"/>
-      <path d="M370 20 L 380 -10 H 430" className={lineClasses} strokeWidth="1"/>
-      <text x="435" y="-5" textAnchor="start" className={textClasses}>{mappings.right_trigger}</text>
+      <path d="M370 20 L 380 -20 H 440" className={lineClasses} strokeWidth="1"/>
+      <text x="445" y="-15" textAnchor="start" className={textClasses}>{mappings.right_trigger}</text>
     </svg>
   );
 }
