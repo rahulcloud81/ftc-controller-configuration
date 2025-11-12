@@ -69,29 +69,37 @@ export default function XboxController({ activeInput, mappings }: XboxController
       <text x="205" y="150" textAnchor="start" className={textClasses} style={{ whiteSpace: 'pre-wrap' }}>{mappings.dpad_right}</text>
       
       {/* Face Buttons */}
-      <g pointerEvents="none">
-        <circle cx="375" cy="155" r="15" className={getClasses('a_button')} />
-        <circle cx="375" cy="155" r="8" className="fill-chart-2 stroke-card" strokeWidth="1"/>
+      <g>
+        {/* A Button */}
+        <circle cx="375" cy="155" r="20" className={getClasses('a_button')} />
+        <circle cx="375" cy="155" r="12" className="fill-chart-2" />
+        <text x="375" y="160" textAnchor="middle" className="text-lg font-bold fill-white">A</text>
 
-        <circle cx="410" cy="125" r="15" className={getClasses('b_button')} />
-        <circle cx="410" cy="125" r="8" className="fill-chart-1 stroke-card" strokeWidth="1" />
+        {/* B Button */}
+        <circle cx="415" cy="125" r="20" className={getClasses('b_button')} />
+        <circle cx="415" cy="125" r="12" className="fill-chart-1" />
+        <text x="415" y="130" textAnchor="middle" className="text-lg font-bold fill-white">B</text>
 
-        <circle cx="340" cy="125" r="15" className={getClasses('x_button')} />
-        <circle cx="340" cy="125" r="8" className="fill-chart-4 stroke-card" strokeWidth="1"/>
+        {/* X Button */}
+        <circle cx="335" cy="125" r="20" className={getClasses('x_button')} />
+        <circle cx="335" cy="125" r="12" className="fill-chart-4" />
+        <text x="335" y="130" textAnchor="middle" className="text-lg font-bold fill-white">X</text>
 
-        <circle cx="375" cy="95" r="15" className={getClasses('y_button')} />
-        <circle cx="375" cy="95" r="8" className="fill-chart-5 stroke-card" strokeWidth="1"/>
+        {/* Y Button */}
+        <circle cx="375" cy="95" r="20" className={getClasses('y_button')} />
+        <circle cx="375" cy="95" r="12" className="fill-chart-5" />
+        <text x="375" y="100" textAnchor="middle" className="text-lg font-bold fill-white">Y</text>
       </g>
-      <path d="M375 170 V 230 H 330" className={lineClasses} strokeWidth="1"/>
+      <path d="M375 175 V 230 H 330" className={lineClasses} strokeWidth="1"/>
       <text x="325" y="235" textAnchor="end" className={textClasses} style={{ whiteSpace: 'pre-wrap' }}>{mappings.a_button}</text>
       
-      <path d="M410 140 V 170 H 450" className={lineClasses} strokeWidth="1"/>
-      <text x="455" y="175" textAnchor="start" className={textClasses} style={{ whiteSpace: 'pre-wrap' }}>{mappings.b_button}</text>
+      <path d="M415 145 V 170 H 455" className={lineClasses} strokeWidth="1"/>
+      <text x="460" y="175" textAnchor="start" className={textClasses} style={{ whiteSpace: 'pre-wrap' }}>{mappings.b_button}</text>
       
-      <path d="M340 110 V 85 H 290" className={lineClasses} strokeWidth="1"/>
-      <text x="285" y="90" textAnchor="end" className={textClasses} style={{ whiteSpace: 'pre-wrap' }}>{mappings.x_button}</text>
+      <path d="M335 105 V 85 H 285" className={lineClasses} strokeWidth="1"/>
+      <text x="280" y="90" textAnchor="end" className={textClasses} style={{ whiteSpace: 'pre-wrap' }}>{mappings.x_button}</text>
       
-      <path d="M375 80 V 55 H 425" className={lineClasses} strokeWidth="1"/>
+      <path d="M375 75 V 55 H 425" className={lineClasses} strokeWidth="1"/>
       <text x="430" y="60" textAnchor="start" className={textClasses} style={{ whiteSpace: 'pre-wrap' }}>{mappings.y_button}</text>
 
       
