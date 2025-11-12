@@ -1,4 +1,3 @@
-
 'use client';
 
 import type { ControllerMapping, MappingKey } from '@/lib/types';
@@ -28,8 +27,8 @@ export default function XboxController({ activeInput, mappings }: XboxController
       {/* Left Stick */}
       <circle cx="170" cy="185" r="30" className={cn(getClasses('left_stick_press'), 'stroke-primary fill-muted-foreground/50')} strokeWidth="2"/>
       <circle cx="170" cy="185" r="25" className="fill-muted-foreground" />
-      <path d="M170 215 V 340 H 120" className={lineClasses} strokeWidth="1"/>
-      <text x="115" y="345" textAnchor="end" className={textClasses}>{mappings.left_stick_press}</text>
+      <path d="M170 215 V 285 H 120" className={lineClasses} strokeWidth="1"/>
+      <text x="115" y="290" textAnchor="end" className={textClasses}>{mappings.left_stick_press}</text>
       
       <path d="M140 185 H 80" className={lineClasses} strokeWidth="1"/>
       <text x="75" y="190" textAnchor="end" className={textClasses}>{mappings.left_stick_x}</text>
@@ -44,8 +43,8 @@ export default function XboxController({ activeInput, mappings }: XboxController
       <path d="M330 215 V 285 H 380" className={lineClasses} strokeWidth="1"/>
       <text x="385" y="290" textAnchor="start" className={textClasses}>{mappings.right_stick_press}</text>
       
-      <path d="M360 185 H 440" className={lineClasses} strokeWidth="1"/>
-      <text x="445" y="190" textAnchor="start" className={textClasses}>{mappings.right_stick_x}</text>
+      <path d="M360 185 H 460" className={lineClasses} strokeWidth="1"/>
+      <text x="465" y="190" textAnchor="start" className={textClasses}>{mappings.right_stick_x}</text>
 
       <path d="M330 155 V 115 H 380" className={lineClasses} strokeWidth="1"/>
       <text x="385" y="120" textAnchor="start" className={textClasses}>{mappings.right_stick_y}</text>
