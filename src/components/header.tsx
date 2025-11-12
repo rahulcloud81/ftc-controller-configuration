@@ -6,6 +6,7 @@ import { FolderOpen, Save, Printer, Download } from 'lucide-react';
 import type { ControllerMapping } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 import { APP_TITLE } from '@/lib/config';
+import { ThemeToggle } from './theme-toggle';
 
 type HeaderProps = {
   onSave: () => void;
@@ -89,6 +90,7 @@ export default function Header({ onSave, onDownload, onLoad, onPrint }: HeaderPr
             <Printer />
             Print
           </Button>
+          <ThemeToggle />
         </div>
       </div>
     </header>
