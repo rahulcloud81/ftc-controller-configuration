@@ -109,7 +109,7 @@ export default function Home() {
       <main className="flex-1 container mx-auto px-4 py-8 no-print">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2 flex items-center justify-center">
-            <div className="w-full max-w-lg lg:max-w-none sticky top-8">
+            <div className="w-full max-w-lg sticky top-8">
               <XboxController activeInput={activeInput} mappings={mappings} />
             </div>
           </div>

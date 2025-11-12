@@ -71,14 +71,14 @@ export default function XboxController({ activeInput, mappings }: XboxController
       {/* Face Buttons */}
       <g pointerEvents="none">
         <circle cx="410" cy="155" r="15" className={getClasses('y_button')} />
-        <path d="M402 147 L410 163 L418 147 Z" fill="#6EE7B7" stroke="#000" strokeWidth="1"/>
+        <path d="M402 147 L410 163 L418 147 Z" className="fill-chart-2 stroke-card" strokeWidth="1"/>
         <circle cx="445" cy="125" r="15" className={getClasses('b_button')} />
-        <circle cx="445" cy="125" r="8" fill="#F87171" stroke="#000" strokeWidth="1" />
+        <circle cx="445" cy="125" r="8" className="fill-chart-1 stroke-card" strokeWidth="1" />
         <circle cx="375" cy="125" r="15" className={getClasses('a_button')} />
-        <rect x="367" y="117" width="16" height="16" fill="#93C5FD" stroke="#000" strokeWidth="1"/>
+        <rect x="367" y="117" width="16" height="16" className="fill-chart-4 stroke-card" strokeWidth="1"/>
         <circle cx="410" cy="95" r="15" className={getClasses('x_button')} />
-        <line x1="402" y1="103" x2="418" y2="87" stroke="#FBBF24" strokeWidth="2"/>
-        <line x1="402" y1="87" x2="418" y2="103" stroke="#FBBF24" strokeWidth="2"/>
+        <line x1="402" y1="103" x2="418" y2="87" className="stroke-chart-5" strokeWidth="2"/>
+        <line x1="402" y1="87" x2="418" y2="103" className="stroke-chart-5" strokeWidth="2"/>
       </g>
       <path d="M375 140 V 160 H 340" className={lineClasses} strokeWidth="1"/>
       <text x="335" y="165" textAnchor="end" className={textClasses}>{mappings.a_button}</text>
