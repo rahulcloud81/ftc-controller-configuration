@@ -17,7 +17,7 @@ export default function XboxController({ activeInput, mappings }: XboxController
   const lineClasses = "stroke-chart-1";
 
   return (
-    <svg width="600" height="400"
+    <svg width="650" height="400"
      viewBox="-50 -50 600 400"
       fill="none" 
       xmlns="http://www.w3.org/2000/svg">
