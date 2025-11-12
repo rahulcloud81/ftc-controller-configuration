@@ -106,20 +106,16 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header onSave={handleSave} onDownload={handleDownload} onLoad={handleLoad} onPrint={handlePrint} />
-      <main className="flex-1 container mx-auto px-4 py-8 no-print">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          <div className="lg:col-span-2 flex items-center justify-center">
-            <div className="w-full max-w-lg sticky top-8">
-              <XboxController activeInput={activeInput} mappings={mappings} />
-            </div>
-          </div>
-          <div className="lg:col-span-3">
-            <MappingForm
-              mappings={mappings}
-              onMappingChange={handleMappingChange}
-              setActiveInput={setActiveInput}
-            />
-          </div>
+      <main className="flex-1 container mx-auto px-4 py-8 no-print flex flex-col items-center">
+        <div className="w-full flex justify-center mb-8">
+            <XboxController activeInput={activeInput} mappings={mappings} />
+        </div>
+        <div className="w-full">
+          <MappingForm
+            mappings={mappings}
+            onMappingChange={handleMappingChange}
+            setActiveInput={setActiveInput}
+          />
         </div>
       </main>
       <PrintableConfig mappings={mappings} />
